@@ -55,4 +55,4 @@ Tips: Om du inte ser de senaste JS‑ändringarna, gör en "hård uppdatering" (
 
 - Filtrering/sortering av produkter
 - Produktdetalsida (modal eller ny sida)
-- Enkel kassa/demo-checkout
+- Enkel kassa/demo-checkout 
