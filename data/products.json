@@ -1,0 +1,236 @@
+[
+  {
+    "id": "ljus1",
+  "name": "Vaniljglöd",
+    "image": "images/Ljus1.png",
+    "price": 249,
+    "scent": "Vanilj & Amber",
+    "description": "Krämig vanilj möter varm amber och skapar en omfamnande, tidlös doft för hemmets mysigaste stunder.",
+    "mood": "Mysig"
+  },
+  {
+    "id": "ljus2",
+  "name": "Kvällsro",
+    "image": "images/Ljus2.png",
+    "price": 239,
+    "scent": "Lavendel & Kamomill",
+    "description": "En lugnande bukett av lavendel och kamomill som hjälper dig att varva ner och hitta ro.",
+    "mood": "Lugn"
+  },
+  {
+    "id": "ljus3",
+  "name": "Sandelvärme",
+    "image": "images/Ljus3.png",
+    "price": 259,
+    "scent": "Sandelträ & Musk",
+    "description": "Mjuk värme från sandelträ och ett pudrigt djup av musk skapar en trygg och jordad atmosfär.",
+    "mood": "Trygg"
+  },
+  {
+    "id": "ljus4",
+  "name": "Citrusbris",
+    "image": "images/Ljus4.png",
+    "price": 229,
+    "scent": "Citrus & Bergamott",
+    "description": "Frisk citrus med solig bergamott lyfter rummet med bubblande energi och klarhet.",
+    "mood": "Energifylld"
+  },
+  {
+    "id": "ljus5",
+  "name": "Rosenträdgård",
+    "image": "images/Ljus5.PNG",
+    "price": 249,
+    "scent": "Ros & Jasmin",
+    "description": "En romantisk blandning av rosblad och nattblommande jasmin som känns mjuk och inbjudande.",
+    "mood": "Kärleksfull"
+  },
+  {
+    "id": "ljus6",
+  "name": "Äppelpaj",
+    "image": "images/Ljus6.PNG",
+    "price": 219,
+    "scent": "Äpple & Kanel",
+    "description": "Värmande kryddor möter saftigt äpple – som en nybakad paj som fyller rummet med hemtrevnad.",
+    "mood": "Nostalgisk"
+  },
+  {
+    "id": "ljus7",
+  "name": "Skogslugn",
+    "image": "images/Ljus7.PNG",
+    "price": 239,
+    "scent": "Tall & Enbär",
+    "description": "Krispig skogsdoft av tallbarr och enbär som för in naturens lugn och friskhet.",
+    "mood": "Harmonisk"
+  },
+  {
+    "id": "ljus8",
+  "name": "Havsdoft",
+    "image": "images/Ljus8.PNG",
+    "price": 249,
+    "scent": "Havsbris & Salt",
+    "description": "Lätt och ren havsbris med en nypa havssalt – som att öppna fönstret mot kusten.",
+    "mood": "Avkopplad"
+  },
+  {
+    "id": "ljus9",
+  "name": "Sommarbär",
+    "image": "images/Ljus9.PNG",
+    "price": 239,
+    "scent": "Vildbär",
+    "description": "Sötsyrlig explosion av sommarbär som sprider glädje och lätthet i rummet.",
+    "mood": "Glad"
+  },
+  {
+    "id": "ljus10",
+  "name": "Patchouli & Vanilj",
+    "image": "images/Ljus10.PNG",
+    "price": 259,
+    "scent": "Patchouli & Vanilj",
+    "description": "Djup och rund patchouli med krämig vanilj – fyllig, inbjudande och kreativt inspirerande.",
+    "mood": "Inspirerad"
+  },
+  {
+    "id": "ljus11",
+  "name": "Fikon & Cypress",
+    "image": "images/Ljus11.PNG",
+    "price": 249,
+    "scent": "Fikon & Cypress",
+    "description": "Grön fikonlöv med träig cypress ger ett elegant och modernt uttryck.",
+    "mood": "Självsäker"
+  },
+  {
+    "id": "ljus12",
+  "name": "Grapefrukt & Mint",
+    "image": "images/Ljus12.PNG",
+    "price": 229,
+    "scent": "Grapefrukt & Mint",
+    "description": "Pigga citrusnoter och kylig mint som fräschar upp sinnet och skapar lätt fokus.",
+    "mood": "Uppfriskad"
+  },
+  {
+    "id": "ljus13",
+  "name": "Amber Oudh",
+    "image": "images/Ljus13.PNG",
+    "price": 269,
+    "scent": "Oudh & Amber",
+    "description": "Lyxig, bärnstensvarm doft med oudh som ger djup och karaktär.",
+    "mood": "Varm"
+  },
+  {
+    "id": "ljus14",
+  "name": "Eukalyptus & Mynta",
+    "image": "images/Ljus14.PNG",
+    "price": 239,
+    "scent": "Eukalyptus & Mynta",
+    "description": "Klar och ren eukalyptus med uppfriskande mynta för ett luftigt, fokuserat hem.",
+    "mood": "Fokuserad"
+  },
+  {
+    "id": "ljus15",
+  "name": "Kokos & Lime",
+    "image": "images/Ljus15.PNG",
+    "price": 249,
+    "scent": "Kokos & Lime",
+    "description": "Solvarm kokos med syrlig lime – som en liten semester i ett ljus.",
+    "mood": "Drömsk"
+  },
+  {
+    "id": "ljus16",
+  "name": "Pepparmynta & Rosmarin",
+    "image": "images/Ljus16.PNG",
+    "price": 259,
+    "scent": "Pepparmynta & Rosmarin",
+    "description": "Frisk örtighet som rensar tankarna och väcker ny energi.",
+    "mood": "Kreativ"
+  },
+  {
+    "id": "ljus17",
+  "name": "Svartvinbär & Vanilj",
+    "image": "images/Ljus17.PNG",
+    "price": 249,
+    "scent": "Svartvinbär & Vanilj",
+    "description": "Mörka bär med mjuk vanilj ger en rund och omfamnande sötma.",
+    "mood": "Tacksam"
+  },
+  {
+    "id": "ljus18",
+  "name": "Neroli & Honung",
+    "image": "images/Ljus18.PNG",
+    "price": 229,
+    "scent": "Neroli & Honung",
+    "description": "Apelsinblom (neroli) med gyllene honung skapar en mild, omslutande värme.",
+    "mood": "Omhändertagen"
+  },
+  {
+    "id": "ljus19",
+  "name": "Pepparkaka & Kardemumma",
+    "image": "images/Ljus19.PNG",
+    "price": 239,
+    "scent": "Pepparkaka & Kardemumma",
+    "description": "Kryddigt och sprött som nygräddade pepparkakor – årets mysigaste stämning i en låga.",
+    "mood": "Festlig"
+  },
+  {
+    "id": "ljus20",
+  "name": "Tallbarr & Mossa",
+    "image": "images/Ljus20.PNG",
+    "price": 249,
+    "scent": "Tallbarr & Mossa",
+    "description": "Frisk skogspromenad i ett ljus – jordigt gröna noter för balans och närvaro.",
+    "mood": "Balans"
+  },
+  {
+    "id": "ljus21",
+  "name": "Citronverbena",
+    "image": "images/Ljus21.PNG",
+    "price": 239,
+    "scent": "Citronverbena",
+    "description": "Lätt, citrussyrlig verbena som väcker kroppen varsamt med friskhet.",
+    "mood": "Frisk"
+  },
+  {
+    "id": "ljus22",
+  "name": "Bärnsten & Tonkaböna",
+    "image": "images/Ljus22.PNG",
+    "price": 259,
+    "scent": "Bärnsten & Tonkaböna",
+    "description": "Djup, söt bärnsten möter mjuk tonka för en omedelbart omfamnande känsla.",
+    "mood": "Romantisk"
+  },
+  {
+    "id": "ljus23",
+  "name": "Pion & Ros",
+    "image": "images/Ljus23.PNG",
+    "price": 229,
+    "scent": "Pion & Ros",
+    "description": "Silkeslena blomblad med elegant ros – lätt, pudrig och tidlös.",
+    "mood": "Kärleksfull"
+  },
+  {
+    "id": "ljus24",
+  "name": "Kaffe & Karamell",
+    "image": "images/Ljus24.PNG",
+    "price": 249,
+    "scent": "Kaffe & Karamell",
+    "description": "Rostade kaffebönor med smörig karamell fyller rummet med cafévärme.",
+    "mood": "Energifylld"
+  },
+  {
+    "id": "ljus25",
+  "name": "Olibanum & Myrra",
+    "image": "images/Ljus25.PNG",
+    "price": 269,
+    "scent": "Olibanum & Myrra",
+    "description": "Resinöst, mjukt rökigt och meditativt – en stilla stund i varje flamma.",
+    "mood": "Fridfull"
+  },
+  {
+    "id": "ljus26",
+  "name": "Lavendel & Vanilj",
+    "image": "images/Ljus26.PNG",
+    "price": 239,
+    "scent": "Lavendel & Vanilj",
+    "description": "Silkeslen lavendel som rundas av med vanilj – rogivande och mjuk.",
+    "mood": "Avslappnad"
+  }
+]

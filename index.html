@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumora | Doftljus</title>
+  <meta name="description" content="Lumora säljer eleganta doftljus. Hög kvalitet, svensk design.">
+  <meta name="theme-color" content="#ffffff">
+  <!--
+    Stilar och bibliotek
+    - Bootstrap CSS/JS via CDN
+    - Projektets CSS: index.css
+    Notera: Ingen build krävs, allt är statiskt.
+  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Typsnitt för lyxig känsla -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="index.css">
+  
+  <!-- Favicon / App-ikoner (vit bakgrund för tydlighet) -->
+  <link rel="icon" type="image/png" href="Flamma.png?v=3" sizes="16x16">
+  <link rel="icon" type="image/png" href="Flamma.png?v=3" sizes="32x32">
+  <link rel="icon" type="image/png" href="Flamma.png?v=3" sizes="192x192">
+  <link rel="shortcut icon" href="Flamma.png?v=3" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="Flamma.png?v=3" sizes="180x180">
+  <!-- Slut på stilar och bibliotek -->
+</head>
+<body>
+<!--
+  Sidhuvud / Navigationsfält
+  - Varumärkeslogga (vänster)
+  - Kundvagnsikon (öppnar varukorg i offcanvas)
+  - Menyknapp (öppnar offcanvas-navigering)
+-->
+<!-- Top utility bar -->
+<div class="topbar fixed-top">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <span class="topbar-item">Fri frakt över 499 kr</span>
+    <span class="topbar-item">Svensk design • Hållbara material</span>
+    <span class="topbar-item d-none d-md-inline">Support: info@lumora.se</span>
+  </div>
+</div>
+
+<!-- Huvudnav -->
+<nav class="navbar navbar-light main-navbar fixed-top" style="top: 28px;">
+  <div class="container-fluid d-flex align-items-center">
+    <!-- Logga (vänster på alla skärmar) -->
+    <a class="navbar-brand" href="index.html" aria-label="Lumora startsida">
+      <img src="Image text.png" alt="Lumora logotyp" width="150" height="110" class="align-middle">
+    </a>
+
+    <!-- Primärlänkar (desktop) -->
+    <ul class="nav d-none d-lg-flex gap-3 main-links ms-3 me-auto">
+      <li class="nav-item"><a class="nav-link" href="index.html">Hem</a></li>
+      <li class="nav-item"><a class="nav-link" href="om-oss.html">Om oss</a></li>
+      <li class="nav-item"><a class="nav-link" href="kontakt.html">Kontakt</a></li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kategorier</a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="#">Doftljus</a></li>
+          <li><a class="dropdown-item" href="#">Presentset</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Nyheter</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Actions (höger) -->
+    <div class="d-flex align-items-center actions">
+      <!-- Sök overlay -->
+      <button id="btnOpenSearch" class="icon-btn" type="button" aria-label="Öppna sök">
+        <span class="icon-32">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#bfa053" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </span>
+      </button>
+      <!-- Önskelista -->
+      <button id="btnWishlist" class="icon-btn position-relative" type="button" aria-label="Önskelista">
+        <span class="icon-32">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#bfa053" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5 5 0 0 0-7.1 0L12 6.3l-1.7-1.7a5 5 0 1 0-7.1 7.1l1.7 1.7L12 21l7.1-7.6 1.7-1.7a5 5 0 0 0 0-7.1z"/></svg>
+        </span>
+        <span class="wishlist-badge" hidden>0</span>
+      </button>
+      <!-- Kundvagn -->
+      <button class="btn cart-button d-flex align-items-center justify-content-center position-relative icon-btn" type="button" aria-label="Kundvagn" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+        <span class="icon-32">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#bfa053" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h2l.4 2M7 13h10l4-8H5.4"/><path d="M7 13L5.4 5M7 13l-2 4h13"/></svg>
+        </span>
+        <span class="cart-badge" aria-label="Varukorg antal" hidden>0</span>
+      </button>
+      <span id="cartLive" class="visually-hidden" aria-live="polite"></span>
+      <!-- Hamburger (mobil) -->
+      <button class="navbar-toggler d-flex align-items-center justify-content-center icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Öppna meny">
+        <span class="icon-32">
+          <svg viewBox="0 0 32 32" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <rect y="6" width="32" height="4" rx="2" fill="#bfa053" />
+            <rect y="14" width="32" height="4" rx="2" fill="#bfa053" />
+            <rect y="22" width="32" height="4" rx="2" fill="#bfa053" />
+          </svg>
+        </span>
+      </button>
+    </div>
+
+  <!-- Offcanvas-navigering (hamburger-meny) -->
+    <div class="offcanvas offcanvas-end text-bg-dark offcanvas-full" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel" data-bs-scroll="false" data-bs-backdrop="true">
+      <div class="offcanvas-header">
+  <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Meny</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Stäng"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html" data-bs-dismiss="offcanvas">Hem</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="om-oss.html" data-bs-dismiss="offcanvas">Om oss</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="kontakt.html" data-bs-dismiss="offcanvas">Kontakt</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Kategorier
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="#">Doftljus</a></li>
+              <li><a class="dropdown-item" href="#">Presentset</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Nyheter</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form id="siteSearchForm" class="d-flex mt-3" role="search">
+          <input id="siteSearchInput" class="form-control me-2" type="search" placeholder="Sök doft, namn, känsla..." aria-label="Sök"/>
+          <button class="btn btn-success" type="submit" data-bs-dismiss="offcanvas">Sök</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Sök-overlay (fullskärm) -->
+<div id="searchOverlay" class="search-overlay" aria-hidden="true">
+  <div class="search-overlay-backdrop" data-overlay-close></div>
+  <div class="search-overlay-content">
+    <form id="overlaySearchForm" class="overlay-search-form" role="search">
+      <input id="overlaySearchInput" class="overlay-search-input" type="search" placeholder="Sök doft, namn, känsla..." aria-label="Sök" autofocus />
+      <button type="submit" class="overlay-search-btn">Sök</button>
+    </form>
+    <button class="overlay-close" type="button" aria-label="Stäng sök" data-overlay-close>&times;</button>
+  </div>
+  <div class="overlay-hint">Tryck Esc för att stänga</div>
+  </div>
+<!--
+  Huvudinnehåll
+  - Sidrubrik
+  - Produktsektion med gallerigrid
+  - "Visa mer"-knapp för pagination
+-->
+<main class="container mt-5 pt-5">
+  <h1 class="text-center">Lumora – Doftljus</h1>
+  <section class="my-5">
+  <h2 class="text-center mb-4">Våra ljus</h2>
+  <!-- Galleri fylls av js/app.js (dynamiskt) -->
+  <div class="gallery-grid"></div>
+  <div class="text-center mt-4">
+    <button id="btnLoadMore" class="btn btn-outline-secondary">Visa mer</button>
+  </div>
+  </section>
+</main>
+<!-- Sidfot -->
+<footer class="site-footer mt-5 py-4">
+  <div class="container text-center">
+    <h2 class="footer-title">Lumora</h2>
+    <p class="footer-text mb-1">© 2025 Lumora. Alla rättigheter förbehållna.</p>
+    <nav class="footer-nav mb-2" aria-label="Footer">
+      <a href="index.html" class="footer-link">Hem</a>
+      <a href="om-oss.html" class="footer-link">Om oss</a>
+      <a href="kontakt.html" class="footer-link">Kontakt</a>
+    </nav>
+    <p class="footer-small">Följ oss på sociala medier!</p>
+    <div class="footer-social" aria-label="Sociala medier">
+      <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm10.5 1.8a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/></svg>
+      </a>
+      <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22 12.06C22 6.48 17.52 2 11.94 2 6.36 2 1.88 6.48 1.88 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.9h2.42V9.41c0-2.4 1.43-3.73 3.62-3.73 1.05 0 2.15.19 2.15.19v2.36h-1.21c-1.2 0-1.57.75-1.57 1.52v1.82h2.67l-.43 2.9h-2.24V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+      </a>
+      <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zm7.5 0h3.83v1.98h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.09V23h-4v-6.51c0-1.55-.03-3.53-2.15-3.53-2.16 0-2.49 1.68-2.49 3.42V23h-4V8.5z"/></svg>
+      </a>
+    </div>
+    <!-- Samarbetspartners: ticker som rullar från höger till vänster -->
+    <div class="footer-partners" aria-label="Samarbetspartners">
+      <div class="partners-ticker" role="marquee" aria-live="off">
+        <div class="partners-marquee">
+          <div class="partners-track">
+            <span class="partner partner-lyko">LYKO</span>
+            <span class="dot">•</span>
+            <span class="partner partner-kicks">KICKS</span>
+            <span class="dot">•</span>
+            <span class="partner partner-rituals">RITUALS</span>
+            <span class="dot">•</span>
+            <span class="partner partner-byredo">BYREDO</span>
+            <span class="dot">•</span>
+            <span class="partner partner-yankee">YANKEE CANDLE</span>
+            <span class="dot">•</span>
+            <span class="partner partner-diptyque">DIPTYQUE</span>
+          </div>
+          <div class="partners-track" aria-hidden="true">
+            <span class="partner partner-lyko">LYKO</span>
+            <span class="dot">•</span>
+            <span class="partner partner-kicks">KICKS</span>
+            <span class="dot">•</span>
+            <span class="partner partner-rituals">RITUALS</span>
+            <span class="dot">•</span>
+            <span class="partner partner-byredo">BYREDO</span>
+            <span class="dot">•</span>
+            <span class="partner partner-yankee">YANKEE CANDLE</span>
+            <span class="dot">•</span>
+            <span class="partner partner-diptyque">DIPTYQUE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</footer>
+<!--
+  Varukorg (Offcanvas)
+  - Renderar varor dynamiskt via js/app.js
+  - Antalskontroller och totalsumma
+-->
+<div class="offcanvas offcanvas-end cart-offcanvas" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="cartOffcanvasLabel">Varukorg</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Stäng"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <div id="cartItems" class="cart-items flex-grow-1"></div>
+    <div class="cart-summary mt-3">
+      <div class="d-flex justify-content-between align-items-center">
+        <strong>Totalt:</strong>
+        <span id="cartTotal">0 kr</span>
+      </div>
+      <div class="mt-3 d-flex gap-2">
+        <button id="btnClearCart" class="btn btn-outline-danger btn-sm">Töm</button>
+        <button id="btnCheckout" class="btn btn-success btn-sm">Till kassan</button>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<!-- App-skript (cache-busting ser till att senaste versionen laddas) -->
+<script src="js/app.js?v=20250920" defer></script>
+</body>
+</html>

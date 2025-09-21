@@ -1,0 +1,350 @@
+/* ======================================
+  Gallerigrid-layout
+  - Responsiv CSS Grid som används för produktkorten
+  ====================================== */
+.root, :root { --card-img-h: 170px; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+  max-width: 880px;
+  margin: 0 auto;
+  grid-auto-flow: dense;
+}
+
+/* Extra liten skärm: en kolumn */
+@media (max-width: 380px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 576px) {
+  :root { --card-img-h: 180px; }
+  .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 992px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.6rem;
+  }
+  /* Mosaik-aspekter avaktiverade för enhetlig höjd */
+}
+
+/* På mycket stora skärmar: fem kolumner för mindre kort */
+@media (min-width: 1200px) {
+  .gallery-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+/* Mosaic-span endast på ultrabreda skärmar */
+@media (min-width: 1400px) {
+  .ljus1 { grid-column: span 2; }
+}
+
+/* Produktkortets container och bild */
+.ljus-item {
+  background: transparent;
+  padding: 0;
+  transition: transform 180ms ease;
+}
+.ljus-item:hover {
+  transform: translateY(-4px);
+}
+.ljus-item:hover .ljus-img{ box-shadow:0 10px 24px rgba(0,0,0,.14); }
+
+/* Bilden behåller konsekvent bildförhållande */
+.ljus-img {
+  width: 100%;
+  height: var(--card-img-h);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+  border: 1px solid rgba(191,160,83,0.18);
+  transition: box-shadow 180ms ease;
+}
+
+/* Bildhöjd per brytpunkt för proportionerlig känsla */
+@media (min-width: 992px) { :root { --card-img-h: 200px; } }
+@media (min-width: 1200px) { :root { --card-img-h: 220px; } }
+
+/* ======================================
+  Produktinfo under bilderna
+  ====================================== */
+.product-meta {
+  padding: 6px 2px 0;
+  text-align: center;
+}
+.product-title { font-size: clamp(1rem, 2.2vw, 1.08rem); font-weight: 600; margin: 4px 0 2px; font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; letter-spacing: 0.2px; }
+.product-scent { font-size: clamp(0.9rem, 2.2vw, 0.95rem); color:#5a5a5a; margin:0 0 2px; }
+.product-mood { font-size: clamp(0.9rem, 2.1vw, 0.94rem); color:#5a5a5a; margin:0 0 4px; }
+.product-price {
+  font-size: clamp(1rem, 2.4vw, 1.05rem);
+  color: #bfa053;
+  font-weight: 600;
+  margin: 2px 0 0;
+}
+.product-desc { font-size:clamp(0.9rem, 2vw, 0.95rem); color:#444; margin:4px 8px 0; }
+/* Dold extra-info (visas via Läs mer) */
+.product-extra.collapsed { display: none; }
+.btn-read-more {
+  margin-top: 6px;
+  margin-bottom: 4px;
+  background: transparent;
+  border: none;
+  color: #4a4a4a;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: clamp(0.9rem, 2vw, 0.95rem);
+}
+/* Lägg i varukorg-knapp */
+.product-actions { margin-top: 8px; text-align: center; }
+.btn-add-cart {
+  display: inline-block;
+  padding: clamp(4px, 1.2vw, 6px) clamp(10px, 2vw, 12px);
+  font-size: clamp(0.9rem, 2.3vw, 0.95rem);
+  border-radius: 8px;
+  border: 1px solid #bfa053;
+  color: #bfa053;
+  background: transparent;
+  transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
+  letter-spacing: 0.2px;
+}
+.btn-add-cart:hover { background: #bfa053; color: #1b1b1b; }
+h1.text-center { margin-top:96px; }
+/* Stor, tydlig navbar-titel */
+.navbar-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  max-width: 50vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .navbar .container-fluid { flex-wrap: nowrap !important; }
+  .navbar-title { font-size: 1.2rem; max-width: 30vw; }
+  /* Återställ mobil-loggans storlek som tidigare */
+  .navbar-brand img { width: 80px !important; height: auto !important; }
+}
+.navbar-toggler {
+  height: 48px;
+  width: 48px;
+  position: relative;
+}
+/* Gör navbarens innehåll tydligt ovanpå bakgrunden */
+.navbar .container-fluid {
+  position: relative;
+  z-index: 2;
+}
+/* Återställ standard-loggans storlek (desktop) */
+.navbar-brand img { width: 160px; height: auto; }
+/* Kundvagns-badge */
+.cart-button { position: relative; }
+.cart-badge {
+  position: absolute;
+  top: 2px;
+  right: 6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: #bfa053;
+  color: #1b1b1b;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+}
+/* Tweak för surfplatta */
+@media (min-width: 769px) and (max-width: 991px) {
+  .navbar-brand img { width: 120px; height: auto; }
+}
+body {
+  background-color: rgba(214, 181, 120, 0.3);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+main.flex-grow-1 {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+/* Anpassad navbar-bakgrund och fokus */
+.navbar { background-color: rgba(255,255,255,0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 24px rgba(0,0,0,.06); border-bottom: 1px solid rgba(0,0,0,0.06); }
+.topbar { height:28px; background:#232323; color:#fff; border-bottom:1px solid rgba(255,255,255,0.08); font-size:12px; letter-spacing:.2px; }
+.topbar .topbar-item { color:#e8e8e8; }
+.main-navbar { background-color: rgba(255,255,255,0.92); }
+.main-links .nav-link { color:#2c2c2c; font-weight:600; }
+.main-links .nav-link:hover, .main-links .nav-link:focus { color:#bfa053; }
+.actions .icon-btn { margin-right:12px; }
+.wishlist-badge { position:absolute; top:2px; right:6px; min-width:18px; height:18px; padding:0 4px; border-radius:9px; background:#bfa053; color:#1b1b1b; font-size:12px; font-weight:700; line-height:18px; text-align:center; }
+
+/* Sök-overlay */
+.search-overlay { position: fixed; inset:0; display:none; z-index: 1056; }
+.search-overlay.active { display:block; }
+.search-overlay .search-overlay-backdrop { position:absolute; inset:0; background: rgba(0,0,0,0.5); backdrop-filter: blur(2px); }
+.search-overlay .search-overlay-content { position:relative; max-width: 760px; margin: 20vh auto 0; padding: 24px; background: #fff; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,.25); border:1px solid rgba(0,0,0,.06); }
+.overlay-search-form { display:flex; gap:12px; }
+.overlay-search-input { flex:1 1 auto; padding: 14px 16px; border:1px solid rgba(191,160,83,0.55); border-radius:10px; font-size:1.1rem; background: rgba(191,160,83,0.08); caret-color:#bfa053; }
+.overlay-search-input::placeholder { color:#6a5f46; opacity:.9; }
+.overlay-search-input:focus { outline:none; border-color:#bfa053; box-shadow: 0 0 0 0.2rem rgba(191,160,83,0.25); background: rgba(191,160,83,0.12); }
+.overlay-search-btn { padding: 0 18px; border:none; background:#bfa053; color:#1b1b1b; border-radius:10px; font-weight:700; }
+.overlay-close { position:absolute; top:8px; right:10px; background:transparent; border:none; font-size:2rem; line-height:1; color:#333; }
+.overlay-hint { position:absolute; bottom: 6vh; left:0; right:0; text-align:center; color:#f0f0f0; font-size: 0.95rem; }
+:focus-visible { outline:3px solid #bfa053; outline-offset:2px; }
+button { cursor:pointer; }
+/* tidigare grid-area regler borttagna för att undvika konflikter med nya griden */
+
+/* ======================================
+  Sidfotsstilar
+  ====================================== */
+main.container {
+  flex: 1 0 auto;
+}
+
+.site-footer {
+  background: #232323;
+  color: #fff;
+  border-top: 4px solid #bfa053;
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.15);
+}
+.site-footer .footer-title {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #bfa053;
+  margin-bottom: 0.5rem;
+}
+.site-footer .footer-text,
+.site-footer .footer-small {
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+.site-footer .footer-link { color:#bfa053; text-decoration:none; margin:0 0.5em; transition: color 0.2s; padding:2px 4px; border-radius:4px; }
+.site-footer .footer-link:focus-visible{ background:rgba(191,160,83,.2); }
+.site-footer .footer-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.site-footer .footer-nav {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.footer-partners { margin-top: 10px; }
+.partners-ticker { overflow: hidden; }
+.partners-marquee { display: flex; width: max-content; animation: partners-scroll 22s linear infinite; will-change: transform; }
+.partners-track { display: inline-flex; align-items: center; gap: 24px; padding: 6px 24px 6px 0; flex: 0 0 auto; }
+.partner { color: rgba(191,160,83,0.85); font-weight: 600; letter-spacing: .6px; white-space: nowrap; text-shadow: 0 1px 6px rgba(191,160,83,0.15); }
+/* Ta bort punkt-separatorer */
+.dot { display: none; }
+@keyframes partners-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.footer-social { display:flex; gap:14px; justify-content:center; align-items:center; margin-top:6px; }
+/* Ikonernas bakgrund = samma som footerns bakgrund (#232323) */
+.footer-social .social-link { display:inline-flex; width:36px; height:36px; align-items:center; justify-content:center; color:#bfa053; background: #232323; border-radius: 50%; transition: background .2s, color .2s, transform .2s; }
+.footer-social .social-link:hover { color:#fff; background: #2b2b2b; transform: translateY(-1px); }
+.footer-social .social-link:focus-visible { outline:2px solid #bfa053; outline-offset:2px; }
+.site-footer .footer-nav .footer-link:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  background: rgba(255,255,255,0.4);
+  margin-left: 1rem;
+}
+
+/* Logo-liknande typografi per varumärke */
+.partner-lyko { font-family: 'Inter', system-ui, sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; }
+.partner-kicks { font-family: 'Inter', system-ui, sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; }
+.partner-rituals { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.28em; }
+.partner-byredo { font-family: 'Inter', system-ui, sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; }
+.partner-yankee { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; }
+.partner-diptyque { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; }
+
+/* (Bakgrundslogga borttagen på begäran) */
+
+@media (max-width: 600px) {
+  .site-footer {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 0.95rem;
+  }
+  .site-footer .footer-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+  }
+  .site-footer .footer-nav {
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+}
+
+/* Knapp/ikon-klasser som ersätter inline-stilar i HTML */
+.icon-btn { width:48px; height:48px; margin-right:16px; background:transparent; border:none; box-shadow:none; }
+.icon-32 { display:inline-block; width:32px; height:32px; vertical-align:middle; }
+
+/* Minska rörelser för de som önskar */
+@media (prefers-reduced-motion: reduce){ *{ transition:none !important; transform:none !important; } }
+
+/* ======================================
+  Varukorg (offcanvas) – stilar
+  ====================================== */
+.cart-offcanvas .offcanvas-header { border-bottom: 1px solid rgba(0,0,0,0.08); }
+.cart-items { display: flex; flex-direction: column; gap: 12px; }
+.cart-item { display: grid; grid-template-columns: 64px 1fr auto; gap: 10px; align-items: center; }
+.cart-thumb { width: 64px; height: 64px; object-fit: cover; border-radius: 8px; }
+.cart-item-title { font-weight: 600; margin: 0; }
+.cart-item-scent { color: #6b6b6b; margin: 0; font-size: 0.9rem; }
+.cart-item-price { color: #bfa053; font-weight: 600; }
+.qty-controls { display: inline-flex; align-items: center; gap: 6px; }
+.qty-btn { width: 28px; height: 28px; border: 1px solid #ccc; border-radius: 6px; background: #fff; line-height: 26px; text-align: center; }
+.remove-btn { border: none; background: transparent; color: #dc3545; }
+.cart-summary { border-top: 1px solid rgba(0,0,0,0.08); padding-top: 10px; }
+
+/* Offcanvas meny (hamburgare) – matcha footerns tema */
+#offcanvasDarkNavbar { background-color:#232323 !important; color:#fff; }
+#offcanvasDarkNavbar .offcanvas-title { color:#bfa053; }
+#offcanvasDarkNavbar .nav-link { color:#bfa053; }
+#offcanvasDarkNavbar .nav-link:hover, 
+#offcanvasDarkNavbar .nav-link:focus { color:#ffffff; }
+#offcanvasDarkNavbar .dropdown-menu { background-color:#232323; border:1px solid rgba(255,255,255,0.08); }
+#offcanvasDarkNavbar .dropdown-item { color:#bfa053; }
+#offcanvasDarkNavbar .dropdown-item:hover, 
+#offcanvasDarkNavbar .dropdown-item:focus { color:#ffffff; background: rgba(191,160,83,0.15); }
+
+/* Fullskärms offcanvas så man slipper scrolla */
+.offcanvas-full { width: 100vw !important; }
+.offcanvas-full .offcanvas-body { height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+.offcanvas-full .navbar-nav { flex: 1 1 auto; overflow: auto; }
+
+/* ======================================
+  Kontaktformulär – brandad inmatning
+  (scopad till kontakt-sidan via #contactForm)
+  ====================================== */
+#contactForm .form-control {
+  background: rgba(191,160,83,0.08);
+  border: 1px solid rgba(191,160,83,0.45);
+  color: #1b1b1b;
+  caret-color: #bfa053;
+}
+#contactForm .form-control::placeholder {
+  color: #6a5f46;
+  opacity: 0.85;
+}
+#contactForm .form-control:focus {
+  background: rgba(191,160,83,0.12);
+  border-color: #bfa053;
+  box-shadow: 0 0 0 0.2rem rgba(191,160,83,0.25);
+}
