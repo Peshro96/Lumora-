@@ -6,6 +6,7 @@
   <title>Kontakt | Lumora</title>
   <meta name="description" content="Kontakta Lumora – frågor om doftljus, beställningar och samarbeten.">
   <meta name="theme-color" content="#ffffff">
+  <!-- Validerad HTML & CSS: W3C (https://validator.w3.org/ och https://jigsaw.w3.org/css-validator/) – 2025-09-21 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +28,7 @@
     <div class="container-fluid d-flex align-items-center">
       <!-- Logga vänster -->
       <a class="navbar-brand" href="index.html" aria-label="Lumora startsida">
-        <img src="Image text.png" alt="Lumora logotyp" width="150" height="110" class="align-middle">
+        <img src="Image_text.png" alt="Lumora logotyp" width="150" height="110" class="align-middle">
       </a>
       <!-- Länkar (desktop) -->
       <ul class="nav d-none d-lg-flex gap-3 main-links ms-3 me-auto">
@@ -60,7 +61,7 @@
           <span class="icon-32">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#bfa053" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h2l.4 2M7 13h10l4-8H5.4"/><path d="M7 13L5.4 5M7 13l-2 4h13"/></svg>
           </span>
-          <span class="cart-badge" aria-label="Varukorg antal" hidden>0</span>
+          <span class="cart-badge" hidden>0</span>
         </button>
         <span id="cartLive" class="visually-hidden" aria-live="polite"></span>
         <button class="navbar-toggler d-flex align-items-center justify-content-center icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Öppna meny">
@@ -85,7 +86,8 @@
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="kontakt.html" data-bs-dismiss="offcanvas">Kontakt</a></li>
           </ul>
           <form id="siteSearchForm" class="d-flex mt-3" role="search">
-            <input id="siteSearchInput" class="form-control me-2" type="search" placeholder="Sök doft, namn, känsla..." aria-label="Sök"/>
+            <label for="siteSearchInput" class="visually-hidden">Sök på sidan</label>
+            <input id="siteSearchInput" class="form-control me-2" type="search" placeholder="Sök doft, namn, känsla...">
             <button class="btn btn-success" type="submit" data-bs-dismiss="offcanvas">Sök</button>
           </form>
         </div>
@@ -96,7 +98,8 @@
     <div class="search-overlay-backdrop" data-overlay-close></div>
     <div class="search-overlay-content">
       <form id="overlaySearchForm" class="overlay-search-form" role="search">
-        <input id="overlaySearchInput" class="overlay-search-input" type="search" placeholder="Sök doft, namn, känsla..." aria-label="Sök" autofocus />
+        <label for="overlaySearchInput" class="visually-hidden">Sök produkter</label>
+        <input id="overlaySearchInput" class="overlay-search-input" type="search" placeholder="Sök doft, namn, känsla..." autofocus>
         <button type="submit" class="overlay-search-btn">Sök</button>
       </form>
       <button class="overlay-close" type="button" aria-label="Stäng sök" data-overlay-close>&times;</button>
@@ -138,7 +141,7 @@
         <a href="kontakt.html" class="footer-link">Kontakt</a>
       </nav>
       <p class="footer-small">Följ oss på sociala medier!</p>
-      <div class="footer-social" aria-label="Sociala medier">
+      <nav class="footer-social" aria-label="Sociala medier">
         <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm10.5 1.8a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/></svg>
         </a>
@@ -148,8 +151,9 @@
         <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zm7.5 0h3.83v1.98h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.09V23h-4v-6.51c0-1.55-.03-3.53-2.15-3.53-2.16 0-2.49 1.68-2.49 3.42V23h-4V8.5z"/></svg>
         </a>
-      </div>
-      <div class="footer-partners" aria-label="Samarbetspartners">
+      </nav>
+      <section class="footer-partners" aria-labelledby="partnersHeading">
+        <h2 id="partnersHeading" class="visually-hidden">Samarbetspartners</h2>
         <div class="partners-ticker" role="marquee" aria-live="off">
           <div class="partners-marquee">
             <div class="partners-track">
@@ -180,7 +184,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   </footer>
 
@@ -223,5 +227,7 @@
   </script>
 
   <script src="js/app.js?v=20250920" defer></script>
+
+  <!-- Validering: HTML & CSS validerade 2025-09-21 via W3C (https://validator.w3.org/ och https://jigsaw.w3.org/css-validator/) -->
 </body>
 </html>

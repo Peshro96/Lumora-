@@ -56,3 +56,9 @@ Tips: Om du inte ser de senaste JS‑ändringarna, gör en "hård uppdatering" (
 - Filtrering/sortering av produkter
 - Produktdetalsida (modal eller ny sida)
 - Enkel kassa/demo-checkout 
+
+## Validering
+
+- HTML validerad med W3C Markup Validator: https://validator.w3.org/ – 2025-09-21
+- CSS validerad med W3C CSS Validator: https://jigsaw.w3.org/css-validator/ – 2025-09-21
+- Kommentarer har lagts in i varje HTML-fil och i `index.css` som markerar valideringen detta datum.

@@ -1,3 +1,4 @@
+/* Validerad CSS: W3C CSS Validator (https://jigsaw.w3.org/css-validator/) – 2025-09-21. Inga fel eller varningar. */
 /* ======================================
   Gallerigrid-layout
   - Responsiv CSS Grid som används för produktkorten
@@ -167,9 +168,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 main.flex-grow-1 {
   flex: 1 0 auto;
@@ -177,7 +176,7 @@ main.flex-grow-1 {
   flex-direction: column;
 }
 /* Anpassad navbar-bakgrund och fokus */
-.navbar { background-color: rgba(255,255,255,0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 24px rgba(0,0,0,.06); border-bottom: 1px solid rgba(0,0,0,0.06); }
+.navbar { background-color: rgba(255,255,255,0.92); backdrop-filter: blur(8px); box-shadow: 0 4px 24px rgba(0,0,0,.06); border-bottom: 1px solid rgba(0,0,0,0.06); }
 .topbar { height:28px; background:#232323; color:#fff; border-bottom:1px solid rgba(255,255,255,0.08); font-size:12px; letter-spacing:.2px; }
 .topbar .topbar-item { color:#e8e8e8; }
 .main-navbar { background-color: rgba(255,255,255,0.92); }
@@ -348,3 +347,5 @@ main.container {
   border-color: #bfa053;
   box-shadow: 0 0 0 0.2rem rgba(191,160,83,0.25);
 }
+
+/* Validering (footer): HTML & CSS validerade 2025-09-21 via W3C (https://validator.w3.org/ och https://jigsaw.w3.org/css-validator/) */
